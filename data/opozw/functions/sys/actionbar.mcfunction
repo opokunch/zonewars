@@ -1,0 +1,8 @@
+scoreboard players add actionbar sys 1
+execute if score actionbar sys matches 80.. run scoreboard players set actionbar sys 0
+
+execute if score actionbar sys matches 0..40 if score start sys matches 0 run title @a actionbar [{"text": "§lゲーム状態: §a待機中"}, {"text": "§f - §l参加人数/生存者: "}, {"score": {"name": "online", "objective": "sys"}, "color": "gold"}, {"text": " §f/ "}, {"score": {"name": "alive", "objective": "sys"}, "color": "gold"}]
+execute if score actionbar sys matches 40..80 if score start sys matches 0 run title @a actionbar [{"text": "§lゲーム状態: §a待機中"}, {"text": "§f - §l安地サイズ/中心座標: "}, {"score": {"name": "border", "objective": "sys"}, "color": "light_purple"}, {"text": " §f/ §b[ "}, {"score": {"name": "border_x", "objective": "sys"}}, {"text": "§f, "}, {"score": {"name": "border_z", "objective": "sys"}}, {"text": " §b]"}]
+
+execute if score actionbar sys matches 0..40 if score start sys matches 1 if score time sys matches 200.. run title @a actionbar [{"text": "§lゲーム状態: §c試合中"}, {"text": "§f - §l参加人数/生存者: "}, {"score": {"name": "online", "objective": "sys"}, "color": "gold"}, {"text": " §f/ "}, {"score": {"name": "alive", "objective": "sys"}, "color": "gold"}]
+execute if score actionbar sys matches 40..80 if score start sys matches 1 if score time sys matches 200.. run title @a actionbar [{"text": "§lゲーム状態: §c試合中"}, {"text": "§f - §l安地サイズ/中心座標: "}, {"score": {"name": "border", "objective": "sys"}, "color": "light_purple"}, {"text": " §f/ §b[ "}, {"score": {"name": "border_x", "objective": "sys"}}, {"text": "§f, "}, {"score": {"name": "border_z", "objective": "sys"}}, {"text": " §b]"}]
