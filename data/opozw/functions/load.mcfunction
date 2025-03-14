@@ -4,6 +4,9 @@ tellraw @a {"text": "ZoneWarsの設定をするためにはOP権限が必要で�
 tellraw @a {"text": ""}
 tellraw @a {"text": "ゲーム管理本", "clickEvent": {"action": "run_command", "value": "/function opozw:give"}, "underlined": true, "color": "green", "bold": true}
 
+#tp
+tp @a @e[type=armor_stand, tag=border_center, limit=1]
+
 #effect
 effect clear @a
 
@@ -23,6 +26,7 @@ scoreboard players set border_last sys 0
 scoreboard players set start sys 0
 scoreboard players set tick sys 0
 scoreboard players set time sys 0
+scoreboard players set end sys 0
 
 scoreboard players set 5 sys 5
 scoreboard players set 10 sys 10
@@ -51,3 +55,4 @@ clear @a
 function opozw:give
 
 execute as @a store success score @s op run difficulty easy
+gamemode adventure @a

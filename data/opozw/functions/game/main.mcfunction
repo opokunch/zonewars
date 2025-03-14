@@ -28,15 +28,25 @@ execute if score time sys matches 199 if score online sys matches ..1 as @a[scor
 execute if score time sys matches 199 if score online sys matches ..1 as @a at @s run playsound ui.button.click player @s ~ ~ ~
 #0sec
 execute if score time sys matches 200 run tag @a add play
+execute if score time sys matches 200 if score gm sys matches 0 run gamemode survival @a
+execute if score time sys matches 200 if score gm sys matches 1 run gamemode adventure @a
 execute if score time sys matches 200 run title @a subtitle {"text": "§7§lスペースキーを押してください"}
 execute if score time sys matches 200 run title @a title {"text": "§4§l--- エリトラを展開してください ---"}
 execute if score time sys matches 200 run effect clear @a
 execute if score time sys matches 200 run effect give @a resistance 30 100 true
 execute if score time sys matches 200 run effect give @a regeneration 30 100 true
 execute if score time sys matches 200 run effect give @a saturation 30 100 true
+execute if score time sys matches 200 run give @a cooked_beef 64
 execute if score time sys matches 200 run item replace entity @a armor.chest with elytra{Unbreakable: true} 1
 execute if score time sys matches 200 as @e[type=armor_stand, tag=border_center] at @s run tp @a ~ ~100 ~
+
 execute if score time sys matches 200..260 as @a at @s run playsound block.note_block.harp player @s ~ ~ ~ 1 2
+
+execute if score time sys matches 200 run give @a iron_sword{Unbreakable: true}
+execute if score time sys matches 200 run give @a iron_axe{Unbreakable: true}
+execute if score time sys matches 200 run give @a iron_pickaxe{Unbreakable: true}
+execute if score time sys matches 200 run give @a iron_shovel{Unbreakable: true}
+execute if score time sys matches 800 run give @a oak_planks 128
 
 #5sec
 execute if score time sys matches 300 run tellraw @a {"text": "§c30秒間無敵時間があります。"}
@@ -60,6 +70,10 @@ execute if score time sys matches 800 as @a at @s run playsound entity.ender_dra
 execute if score time sys matches 800.. run clear @a elytra
 
 #装備
+execute if score time sys matches 800 run item replace entity @a armor.head with diamond_helmet{Unbreakable: true}
+execute if score time sys matches 800 run item replace entity @a armor.chest with diamond_chestplate{Unbreakable: true}
+execute if score time sys matches 800 run item replace entity @a armor.legs with diamond_leggings{Unbreakable: true}
+execute if score time sys matches 800 run item replace entity @a armor.feet with diamond_boots{Unbreakable: true}
 
 #35sec
 execute if score time sys matches 899 as @e[type=armor_stand, tag=border_center] run summon armor_stand ~ ~ ~ {Tags: [border_nextcenter], NoGravity: true, Invisible: true}
@@ -229,7 +243,7 @@ execute if score end sys matches 1 run effect give @a[tag=play] saturation infin
 execute if score end sys matches 1 run title @a title [{"text": "§c試合終了"}]
 execute if score end sys matches 1 as @a at @s run playsound entity.ender_dragon.death player @s ~ ~ ~ 0.5 1 0.5
 
-execute if score end sys matches 80 run title @a title [{"text": "勝者: "}, {"selector": "@a[tag=play, nbt={playerGameType: 0}]"}]
+execute if score end sys matches 80 run title @a title [{"text": "勝者: §6"}, {"selector": "@a[tag=play, nbt={playerGameType: 0}]"}]
 execute if score end sys matches 80 as @a[tag=play, nbt={playerGameType: 0}] at @s run playsound entity.player.levelup player @s 0.75 1 0.75
 execute if score end sys matches 80 as @a[tag=play, nbt={playerGameType: 0}] run scoreboard players add win sys 1
 
