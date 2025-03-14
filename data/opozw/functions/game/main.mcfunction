@@ -42,12 +42,6 @@ execute if score time sys matches 200 as @e[type=armor_stand, tag=border_center]
 
 execute if score time sys matches 200..260 as @a at @s run playsound block.note_block.harp player @s ~ ~ ~ 1 2
 
-execute if score time sys matches 200 run give @a iron_sword{Unbreakable: true}
-execute if score time sys matches 200 run give @a iron_axe{Unbreakable: true}
-execute if score time sys matches 200 run give @a iron_pickaxe{Unbreakable: true}
-execute if score time sys matches 200 run give @a iron_shovel{Unbreakable: true}
-execute if score time sys matches 800 run give @a oak_planks 128
-
 #5sec
 execute if score time sys matches 300 run tellraw @a {"text": "§c30秒間無敵時間があります。"}
 execute if score time sys matches 300 as @a at @s run playsound block.note_block.bit player @s ~ ~ ~
@@ -69,11 +63,26 @@ execute if score time sys matches 800 run title @a title {"text": "§c§l無敵�
 execute if score time sys matches 800 as @a at @s run playsound entity.ender_dragon.growl player @s ~ ~ ~ 0.5 1 0.5
 execute if score time sys matches 800.. run clear @a elytra
 
-#装備
-execute if score time sys matches 800 run item replace entity @a armor.head with diamond_helmet{Unbreakable: true}
-execute if score time sys matches 800 run item replace entity @a armor.chest with diamond_chestplate{Unbreakable: true}
-execute if score time sys matches 800 run item replace entity @a armor.legs with diamond_leggings{Unbreakable: true}
-execute if score time sys matches 800 run item replace entity @a armor.feet with diamond_boots{Unbreakable: true}
+#装備[0 - I/D/OB]
+execute if score time sys matches 200 if score eq sys matches 0 run give @a iron_sword{Unbreakable: true}
+execute if score time sys matches 200 if score eq sys matches 0 run give @a iron_axe{Unbreakable: true}
+execute if score time sys matches 200 if score eq sys matches 0 run give @a iron_pickaxe{Unbreakable: true}
+execute if score time sys matches 200 if score eq sys matches 0 run give @a iron_shovel{Unbreakable: true}
+
+execute if score time sys matches 800 if score eq sys matches 0 run give @a oak_planks 128
+execute if score time sys matches 800 if score eq sys matches 0 run item replace entity @a armor.head with diamond_helmet{Unbreakable: true}
+execute if score time sys matches 800 if score eq sys matches 0 run item replace entity @a armor.chest with diamond_chestplate{Unbreakable: true}
+execute if score time sys matches 800 if score eq sys matches 0 run item replace entity @a armor.legs with diamond_leggings{Unbreakable: true}
+execute if score time sys matches 800 if score eq sys matches 0 run item replace entity @a armor.feet with diamond_boots{Unbreakable: true}
+
+#装備[1 - N/I/DR]
+execute if score time sys matches 800 if score eq sys matches 1 run give @a dirt 128
+execute if score time sys matches 800 if score eq sys matches 1 run item replace entity @a armor.head with iron_helmet{Unbreakable: true}
+execute if score time sys matches 800 if score eq sys matches 1 run item replace entity @a armor.chest with iron_chestplate{Unbreakable: true}
+execute if score time sys matches 800 if score eq sys matches 1 run item replace entity @a armor.legs with iron_leggings{Unbreakable: true}
+execute if score time sys matches 800 if score eq sys matches 1 run item replace entity @a armor.feet with iron_boots{Unbreakable: true}
+
+#装備[2 - R/R/OB] まだやらない
 
 #35sec
 execute if score time sys matches 899 as @e[type=armor_stand, tag=border_center] run summon armor_stand ~ ~ ~ {Tags: [border_nextcenter], NoGravity: true, Invisible: true}

@@ -24,3 +24,5 @@ execute if entity @s[nbt={OnGround:true}] store result score border_x sys run da
 execute if entity @s[nbt={OnGround:true}] store result score border_z sys run data get entity @s Pos[2]
 
 execute if entity @s[nbt={OnGround:true}] run tellraw @s [{"text": "§lボーダーの中心を§b§l[ §f"}, {"score": {"name": "border_x", "objective": "sys"}}, {"text": ", §6"}, {"score": {"name": "border_z", "objective": "sys"}}, {"text": "§b§l ]§f§lに設定しました"}]
+
+playsound block.note_block.pling player @s ~ ~ ~ 0.5 1 0.5

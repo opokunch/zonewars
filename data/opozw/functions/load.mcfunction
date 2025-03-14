@@ -5,7 +5,7 @@ tellraw @a {"text": ""}
 tellraw @a {"text": "ゲーム管理本", "clickEvent": {"action": "run_command", "value": "/function opozw:give"}, "underlined": true, "color": "green", "bold": true}
 
 #tp
-tp @a @e[type=armor_stand, tag=border_center, limit=1]
+execute as @e[type=armor_stand, tag=border_center, limit=1] at @s run tp @a ~ 100 ~
 
 #effect
 effect clear @a
@@ -21,7 +21,10 @@ scoreboard objectives add sys dummy
 scoreboard objectives add op dummy
 
 scoreboard players set border_size sys 100
-scoreboard players set border_last sys 0
+execute unless score border_last sys matches 1..10 run scoreboard players set border_last sys 0
+
+execute unless score gm sys matches 0..1 run scoreboard players set gm sys 0
+execute unless score eq sys matches 0..1 run scoreboard players set eq sys 0
 
 scoreboard players set start sys 0
 scoreboard players set tick sys 0
@@ -34,10 +37,12 @@ scoreboard players set 10 sys 10
 #border
 worldborder warning distance 0
 worldborder set 100000
+worldborder damage amount 1
+worldborder damage buffer 0
 
 #gamerule
 gamerule doMobSpawning false
-execute if score debug sys matches 0 run gamerule sendCommandFeedback false
+execute unless score debug sys matches 0 run gamerule sendCommandFeedback false
 gamerule doMobLoot false
 gamerule doImmediateRespawn true
 
@@ -56,3 +61,5 @@ function opozw:give
 
 execute as @a store success score @s op run difficulty easy
 gamemode adventure @a
+
+playsound block.note_block.pling player @s ~ ~ ~ 0.5 1 0.5
