@@ -26,6 +26,7 @@ execute if score time sys matches 199 if score online sys matches ..1 run scoreb
 execute if score time sys matches 199 if score online sys matches ..1 run title @a title {"text": "§c§l最少人数を満たしていません"}
 execute if score time sys matches 199 if score online sys matches ..1 as @a[scores={op=1}] run function opozw:give
 execute if score time sys matches 199 if score online sys matches ..1 as @a at @s run playsound ui.button.click player @s ~ ~ ~
+
 #0sec
 execute if score time sys matches 200 run tag @a add play
 execute if score time sys matches 200 if score gm sys matches 0 run gamemode survival @a
@@ -38,7 +39,11 @@ execute if score time sys matches 200 run effect give @a regeneration 30 100 tru
 execute if score time sys matches 200 run effect give @a saturation 30 100 true
 execute if score time sys matches 200 run give @a cooked_beef 64
 execute if score time sys matches 200 run item replace entity @a armor.chest with elytra{Unbreakable: true} 1
-execute if score time sys matches 200 as @e[type=armor_stand, tag=border_center] at @s run tp @a ~ ~100 ~
+execute if score time sys matches 200 as @e[type=armor_stand, tag=border_center] at @s run tp @a ~ ~225 ~
+execute if score time sys matches 200 as @e[type=armor_stand, tag=border_center] at @s if dimension the_nether run tp @a ~ 80 ~
+
+execute if score time sys matches 200 if score mob sys matches 0 run gamerule doMobSpawning true
+execute if score time sys matches 200 if score mob sys matches 0 run gamerule doMobLoot true
 
 execute if score time sys matches 200..260 as @a at @s run playsound block.note_block.harp player @s ~ ~ ~ 1 2
 
@@ -105,8 +110,8 @@ execute if score time sys matches 1100 run title @a subtitle {"text": "§7§l移
 execute if score time sys matches 1100 run title @a title {"text": "§c§l安地の移動が開始されました"}
 execute if score time sys matches 1100..1120 as @a at @s run playsound block.note_block.bit player @s ~ ~ ~ 1 2 1
 
-execute if score time sys matches 1100 if score border_size sys matches 100..150 run worldborder set 50 135
-execute if score time sys matches 1100 if score border_size sys matches 200.. run worldborder set 125 135
+execute if score time sys matches 1100 if score border_size sys matches 100..150 as @e[type=armor_stand, tag=border_center] at @s run worldborder set 50 135
+execute if score time sys matches 1100 if score border_size sys matches 200.. as @e[type=armor_stand, tag=border_center] at @s run worldborder set 125 135
 
 #45sec-3min
 execute if score time sys matches 1100..3800 as @e[type=armor_stand, tag=border_center] at @s if entity @e[type=armor_stand, tag=border_nextcenter] run tp ^ ^ ^0.0625
@@ -142,8 +147,8 @@ execute if score time sys matches 4600 run title @a subtitle {"text": "§7§l移
 execute if score time sys matches 4600 run title @a title {"text": "§c§l安地の移動が開始されました"}
 execute if score time sys matches 4600..4620 as @a at @s run playsound block.note_block.bit player @s ~ ~ ~ 1 2 1
 
-execute if score time sys matches 4600 if score border sys matches 50 run worldborder set 25 90
-execute if score time sys matches 4600 if score border sys matches 125 run worldborder set 50 90
+execute if score time sys matches 4600 if score border sys matches 50 as @e[type=armor_stand, tag=border_center] at @s run worldborder set 25 90
+execute if score time sys matches 4600 if score border sys matches 125 as @e[type=armor_stand, tag=border_center] at @s run worldborder set 50 90
 
 #3min40sec-5min10sec
 execute if score time sys matches 4600..6400 as @e[type=armor_stand, tag=border_center] at @s if entity @e[type=armor_stand, tag=border_nextcenter] run tp ^ ^ ^0.0625
@@ -179,8 +184,8 @@ execute if score time sys matches 7500 run title @a subtitle {"text": "§7§l移
 execute if score time sys matches 7500 run title @a title {"text": "§c§l安地の移動が開始されました"}
 execute if score time sys matches 7500..7520 as @a at @s run playsound block.note_block.bit player @s ~ ~ ~ 1 2 1
 
-execute if score time sys matches 7500 if score border sys matches 25 run worldborder set 15 60
-execute if score time sys matches 7500 if score border sys matches 50 run worldborder set 15 60
+execute if score time sys matches 7500 if score border sys matches 25 as @e[type=armor_stand, tag=border_center] at @s run worldborder set 15 60
+execute if score time sys matches 7500 if score border sys matches 50 as @e[type=armor_stand, tag=border_center] at @s run worldborder set 15 60
 
 #6min10sec-7min40sec
 execute if score time sys matches 7500..8700 as @e[type=armor_stand, tag=border_center] at @s if entity @e[type=armor_stand, tag=border_nextcenter] run tp ^ ^ ^0.0625
@@ -216,9 +221,9 @@ execute if score time sys matches 9300 run title @a subtitle {"text": "§7§l移
 execute if score time sys matches 9300 run title @a title {"text": "§c§l安地の移動が開始されました"}
 execute if score time sys matches 9300..9320 as @a at @s run playsound block.note_block.bit player @s ~ ~ ~ 1 2 1
 
-execute if score time sys matches 9300 if score border_last sys matches 0 run worldborder set 5 45
-execute if score time sys matches 9300 if score border_last sys matches 5 run worldborder set 5 45
-execute if score time sys matches 9300 if score border_last sys matches 10 run worldborder set 10 45
+execute if score time sys matches 9300 if score border_last sys matches 0 as @e[type=armor_stand, tag=border_center] at @s run worldborder set 5 45
+execute if score time sys matches 9300 if score border_last sys matches 5 as @e[type=armor_stand, tag=border_center] at @s run worldborder set 5 45
+execute if score time sys matches 9300 if score border_last sys matches 10 as @e[type=armor_stand, tag=border_center] at @s run worldborder set 10 45
 
 #7min10sec-7min55sec
 execute if score time sys matches 9300..10200 as @e[type=armor_stand, tag=border_center] at @s if entity @e[type=armor_stand, tag=border_nextcenter] run tp ^ ^ ^0.0625
