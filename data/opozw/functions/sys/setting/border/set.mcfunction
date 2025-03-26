@@ -1,4 +1,4 @@
-execute if entity @s[nbt={OnGround:false}] run title @s title {"text": "§c地面に立って実行してください"}
+execute if entity @s[nbt={OnGround:false}] run title @s title {"text": "§c§l地面に立って実行してください"}
 
 execute if entity @s[nbt={OnGround:true}] run kill @e[type=armor_stand, tag=border_center]
 
