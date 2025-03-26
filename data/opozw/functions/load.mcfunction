@@ -58,9 +58,9 @@ gamerule doMobLoot true
 clear @a
 
 #give
-execute as @a[scores={checkop=1}] run function opozw:give
+execute as @a[scores={op=1}] run function opozw:give
 
-execute as @a store success score @s checkop run scoreboard players add checkop sys 1
+execute as @a store success score @s op run scoreboard players add checkop sys 1
 gamemode adventure @a
 
 playsound block.note_block.pling player @s ~ ~ ~ 0.5 1 0.5
